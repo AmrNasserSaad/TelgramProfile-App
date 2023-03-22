@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/start">
+
+        <Constraint
+            android:id="@+id/textViewName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/open_sans"
+            android:scaleX="1"
+            android:scaleY="1"
+            android:text="Amr Nasser"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/nested"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+
+    </ConstraintSet>
+
+
+
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/ivProfile"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/profile_img"
+            app:layout_constraintBottom_toTopOf="@id/nested"
+            app:layout_constraintStart_toEndOf="@id/Arrow"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textViewName" />
+        <Constraint
+            android:id="@+id/Arrow"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/arrow_left"
+            app:layout_constraintBottom_toTopOf="@id/nested"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/menu"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/menu"
+            app:layout_constraintBottom_toTopOf="@id/nested"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/textViewName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:scaleX="0.70"
+            android:scaleY="0.70"
+            app:layout_constraintStart_toEndOf="@id/ivProfile"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+       <Constraint
+            android:id="@id/textViewStutas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           app:layout_constraintStart_toEndOf="@+id/textViewName"
+           app:layout_constraintTop_toTopOf="parent"
+           android:layout_marginTop="6dp"
+          />
+
+        <Constraint
+            android:id="@+id/qr"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="268dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/Arrow"
+            app:layout_constraintTop_toTopOf="@+id/Arrow" />
+        <Constraint
+            android:id="@+id/camera"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="24dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/ivProfile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivProfile" />
+    </ConstraintSet>
+
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start">
+        <OnSwipe
+            app:dragDirection="dragUp"
+            app:touchAnchorId="@+id/nested" />
+    </Transition>
+</MotionScene>
